@@ -1,0 +1,9 @@
+section {
+    width: 45%;
+    height: 50vh;
+    margin: 0 auto;
+    background-image: url(../../../assets/img/ferrelogo.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
