@@ -1,9 +1,39 @@
 section {
-    width: 45%;
-    height: 50vh;
+    width: 100%;
+    height: 27vh;
     margin: 0 auto;
     background-image: url(../../../assets/img/ferrelogo.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    section {
+        width: 69%;
+        height: 35vh;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    section {
+        width: 75%;
+        height: 50vh;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    section {
+        width: 50%;
+        height: 52vh;
+    }
 }

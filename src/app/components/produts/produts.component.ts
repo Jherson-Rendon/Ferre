@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
+import { ActivatedRoute } from '@angular/router';
+import { ProdutsService } from 'src/app/services/produts.service';
+
+export interface Producto { nombre: string; img: string; minDes: string; fullDes: string;
+                            precioAnt: number; precio: number; categoria: number[]; hover: boolean; }
 
 @Component({
   selector: 'app-produts',
@@ -8,20 +12,28 @@ import * as $ from 'jquery';
 })
 export class ProdutsComponent implements OnInit {
 
-  public productos = [
-    { id: 1, name: 'Martillo', img: 'assets/img/productos/1.jpg', des: 'Para el baño', precio: '3.000', hover: false },
-    { id: 2, name: 'Tubo', img: 'assets/img/productos/2.jpg', des: 'Este es otro', precio: '3.500', hover: false }
-  ];
+  public productos: Producto;
 
-  public modal: { name: '', img: '', des: '', precio: '' };
+  public modal: Producto;
+  public idPro: number;
 
-  constructor() {
+  constructor(route: ActivatedRoute, public producService: ProdutsService) {
+    route.params.subscribe(params => {
+      const courseSlug = params.slug;
+    });
+
+    this.productos = producService.getDataProducto().default.productos;
   }
 
   ngOnInit() {
   }
 
-  openModal(item) {
+  openModal(item: Producto, id: number) {
     this.modal = item;
+    this.idPro = id;
+  }
+
+  verDetalle(id: number) {
+
   }
 }

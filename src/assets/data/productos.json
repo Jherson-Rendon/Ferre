@@ -1,0 +1,103 @@
+{
+    "productos": [
+        {
+            "nombre": "Martillo",
+            "img": "assets/img/productos/1.jpg",
+            "minDes": "Para el baño",
+            "fullDes": "Descripsion completa del producto, pero clara pues mijo",
+            "precioAnt": "2.500",
+            "precio": "3.000",
+            "categoria": [0, 1, 2],
+            "hover": false
+        },
+        {
+            "nombre": "Martillo",
+            "img": "assets/img/productos/2.jpg",
+            "minDes": "Para el baño",
+            "fullDes": "Descripsion completa del producto, pero clara pues mijo",
+            "precioAnt": "2.500",
+            "precio": "3.000",
+            "categoria": [0, 1, 2],
+            "hover": false
+        },{
+            "nombre": "Martillo",
+            "img": "assets/img/productos/3.jpg",
+            "minDes": "Para el baño",
+            "fullDes": "Descripsion completa del producto, pero clara pues mijo",
+            "precioAnt": "2.500",
+            "precio": "3.000",
+            "categoria": [0, 1, 2],
+            "hover": false
+        },
+        {
+            "nombre": "Martillo",
+            "img": "assets/img/productos/4.jpg",
+            "minDes": "Para el baño",
+            "fullDes": "Descripsion completa del producto, pero clara pues mijo",
+            "precioAnt": "2.500",
+            "precio": "3.000",
+            "categoria": [0, 1, 2],
+            "hover": false
+        },
+        {
+            "nombre": "Martillo",
+            "img": "assets/img/productos/5.jpg",
+            "minDes": "Para el baño",
+            "fullDes": "Descripsion completa del producto, pero clara pues mijo",
+            "precioAnt": "2.500",
+            "precio": "3.000",
+            "categoria": [0, 1, 2],
+            "hover": false
+        },
+        {
+            "nombre": "Martillo",
+            "img": "assets/img/productos/6.jpg",
+            "minDes": "Para el baño",
+            "fullDes": "Descripsion completa del producto, pero clara pues mijo",
+            "precioAnt": "2.500",
+            "precio": "3.000",
+            "categoria": [0, 1, 2],
+            "hover": false
+        },
+        {
+            "nombre": "Martillo",
+            "img": "assets/img/productos/7.jpg",
+            "minDes": "Para el baño",
+            "fullDes": "Descripsion completa del producto, pero clara pues mijo",
+            "precioAnt": "2.500",
+            "precio": "3.000",
+            "categoria": [0, 1, 2],
+            "hover": false
+        },
+        {
+            "nombre": "Masilla",
+            "img": "assets/img/productos/8.jpg",
+            "minDes": "Para el baño",
+            "fullDes": "Descripsion completa del producto, pero clara pues mijo",
+            "precioAnt": "2.500",
+            "precio": "3.000",
+            "categoria": [0, 1, 2],
+            "hover": false
+        },
+        {
+            "nombre": "Caja de clavos",
+            "img": "assets/img/productos/9.jpg",
+            "minDes": "Para el baño",
+            "fullDes": "Descripsion completa del producto, pero clara pues mijo",
+            "precioAnt": "2.500",
+            "precio": "5.000",
+            "categoria": [0, 1, 2],
+            "hover": false
+        },
+        {
+            "nombre": "Martillo",
+            "img": "assets/img/productos/10.jpg",
+            "minDes": "Para el baño",
+            "fullDes": "Descripsion completa del producto, pero clara pues mijo",
+            "precioAnt": "2.500",
+            "precio": "3.000",
+            "categoria": [0, 1, 2],
+            "hover": false
+        }
+    ]
+}
