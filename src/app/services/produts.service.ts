@@ -8,7 +8,7 @@ export class ProdutsService {
   public dataProducto: {};
 
   constructor() {
-    this.dataProducto = dataProducto;
+    this.dataProducto = dataProducto.productos;
   }
 
   getDataProducto() {

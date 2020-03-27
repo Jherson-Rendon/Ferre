@@ -12,17 +12,14 @@ export interface Producto { nombre: string; img: string; minDes: string; fullDes
 })
 export class ProdutsComponent implements OnInit {
 
-  public productos: Producto;
+  public productos: {};
 
   public modal: Producto;
   public idPro: number;
 
-  constructor(route: ActivatedRoute, public producService: ProdutsService) {
-    route.params.subscribe(params => {
-      const courseSlug = params.slug;
-    });
 
-    this.productos = producService.getDataProducto().default.productos;
+  constructor(public producService: ProdutsService) {
+    this.productos = producService.getDataProducto();
   }
 
   ngOnInit() {
@@ -31,9 +28,5 @@ export class ProdutsComponent implements OnInit {
   openModal(item: Producto, id: number) {
     this.modal = item;
     this.idPro = id;
-  }
-
-  verDetalle(id: number) {
-
   }
 }

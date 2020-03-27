@@ -1,0 +1,33 @@
+.card-header {
+    background-color: white;
+    height: 65px;
+    color: black;
+    border-left: none;
+    border-right: none;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+}
+
+#headingOne {
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+}
+
+/* #headingOne {
+    border: solid 1px black;
+} */
+
+.card {
+    border: none;
+}
+
+button {
+    text-decoration: none !important;
+}
+
+button:hover {
+    text-decoration: none !important;
+}
+/* height: 100px;
+    color: black;
+    border: solid 1px 0 black; */
