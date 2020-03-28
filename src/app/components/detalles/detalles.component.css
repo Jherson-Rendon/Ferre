@@ -13,6 +13,11 @@
     border-bottom: solid 1px black;
 }
 
+.div-agregar {
+    display: flex !important;
+    align-items: center;
+}
+
 /* #headingOne {
     border: solid 1px black;
 } */
@@ -23,6 +28,7 @@
 
 button {
     text-decoration: none !important;
+    max-height: 38px;
 }
 
 button:hover {
