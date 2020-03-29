@@ -1,4 +1,4 @@
-<section class="container mt-5">
+<section class="container mt-5 d-block">
   <div class="row px-5 mx-lg-5">
     <div class="col-12 col-md-6 col-lg-7 text-center">
       <img [src]="producto.img" alt="" class="img-fluid" style="max-height: 390px;">
@@ -13,7 +13,10 @@
           <input type="number" class="form-control" id="cantidad" value="1">
           <small class="text-danger" *ngIf="false">{{cantDisp}} disponible(s)</small>
         </div>
-        <button class="col-md-6 mt-3 btn btn-dark btn-block text-white"><i class="fa fa-cart-plus"></i> AGREGAR</button>
+        <!-- Button open Modal Cart -->
+        <button class="col-md-6 mt-3 btn btn-dark btn-block text-white" data-toggle="modal" data-target="#shoppingCart">
+          <i class="fa fa-cart-plus"></i> AGREGAR
+        </button>
       </div>
 
       <div class="accordion mt-5" id="accordionExample">
@@ -53,3 +56,4 @@
     </div>
   </div>
 </section>
+<app-cart></app-cart>
