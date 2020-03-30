@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { ProdutsService } from 'src/app/services/produts.service';
-
-export interface Producto { nombre: string; img: string; minDes: string; fullDes: string;
-                            precioAnt: number; precio: number; categoria: number[]; hover: boolean; }
+import { Producto } from 'src/app/interface/producto';
+import { ProductoCart } from 'src/app/interface/producto-cart';
+import { CartService } from 'src/app/services/cart.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-produts',
@@ -12,21 +12,44 @@ export interface Producto { nombre: string; img: string; minDes: string; fullDes
 })
 export class ProdutsComponent implements OnInit {
 
-  public productos: {};
-
+  public productos: Producto[];
   public modal: Producto;
-  public idPro: number;
 
-
-  constructor(public producService: ProdutsService) {
+  constructor(public producService: ProdutsService, private cartService: CartService) {
     this.productos = producService.getDataProducto();
   }
 
   ngOnInit() {
   }
 
-  openModal(item: Producto, id: number) {
+  openModal(item: Producto) {
     this.modal = item;
-    this.idPro = id;
+  }
+
+  agregarProducto(): void {
+    const producto: ProductoCart = {
+      ref: this.modal.ref,
+      nombre: this.modal.nombre,
+      precio: this.modal.precio,
+      cantidad: Number($('#cantidad').val())
+    };
+    const respuesta = this.cartService.crearItem(producto);
+
+    if (!respuesta.err) {
+      this.alert('success', respuesta.mensaje);
+      ($('#shoppingCart') as any).modal('show');
+    } else {
+      this.alert('warning', respuesta.mensaje);
+    }
+  }
+
+  alert(icono: string, mensaje: string) {
+    Swal.fire({
+      position: 'top-end',
+      icon: (icono as any),
+      title: mensaje,
+      showConfirmButton: false,
+      timer: 1500
+    });
   }
 }

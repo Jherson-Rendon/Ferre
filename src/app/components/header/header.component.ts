@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -13,11 +13,17 @@ export class HeaderComponent implements OnInit {
     { name: 'Contacto', route: 'contacto'}
   ];
   constructor() { }
+  @Output()
+  public modal = new EventEmitter<boolean>();
 
   ngOnInit() {
   }
 
   onToggleCollapse() {
-    ($('.collapse') as any).toggle('slow');
+    ($('#navbarSupportedContent') as any).toggle('slow');
+  }
+
+  openCart() {
+    this.modal.emit(true);
   }
 }
