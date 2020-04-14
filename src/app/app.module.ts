@@ -11,6 +11,7 @@ import { ProdutsComponent } from './components/produts/produts.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { DetallesComponent } from './components/detalles/detalles.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DetallesComponent } from './components/detalles/detalles.component';
     ProdutsComponent,
     NosotrosComponent,
     ContactoComponent,
-    DetallesComponent
+    DetallesComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

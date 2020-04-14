@@ -1,19 +1,34 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
   <div class="container">
-    <a class="navbar-brand" href="#">El Constructor</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="#">
+      <!-- <img src="../../../assets/img/ferrelogo.jpg" width="30" height="30" class="d-inline-block align-top" alt=""> -->
+      El Constructor
+    </a>
+
+    <button class="d-flex d-lg-none mr-2 px-3 btn btn-dark btn-cart" (click)="openCart()">
+      <i class="fa fa-shopping-cart"></i><span class="ml-2 d-none d-sm-block">Mi Carrito</span>
+    </button>
+
+    <button (click)="onToggleCollapse()" class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item" *ngFor="let item of rutas" routerLinkActive="active">
+        <li class="nav-item d-lg-none" *ngFor="let item of rutas" routerLinkActive="active">
+          <a (click)="onToggleCollapse()" class="nav-link" routerLink="/{{item.route}}">{{item.name}}</a>
+        </li>
+        <li class="nav-item d-lg-block" *ngFor="let item of rutas" routerLinkActive="active">
           <a class="nav-link" routerLink="/{{item.route}}">{{item.name}}</a>
         </li>
+        
+        <button class="d-none d-lg-block ml-3 btn btn-dark btn-cart" (click)="openCart()">
+          <i class="fa fa-shopping-cart"></i> Mi Carrito
+        </button>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
+      <form class="d-flex justify-content-center form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Nombre producto" aria-label="Search">
-        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Buscar</button>
+        <button class="d-none d-sm-flex btn btn-outline-dark my-2 my-sm-0" type="submit">Buscar</button>
       </form>
     </div>
   </div>
