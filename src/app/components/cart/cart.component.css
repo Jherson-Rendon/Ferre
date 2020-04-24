@@ -9,3 +9,7 @@ thead th {
 a:hover {
     cursor: pointer;
 }
+
+.cantidad {
+    width: 68px;
+}

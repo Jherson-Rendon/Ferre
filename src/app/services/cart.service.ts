@@ -63,7 +63,8 @@ export class CartService {
   }
 
   borrarProducto(referencia: number): void {
-    let productos = this.getProductos();
+    const productos = this.getProductos();
+
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < productos.length; i++) {
       if (productos[i].ref === referencia) {
@@ -71,5 +72,19 @@ export class CartService {
         this.setProducto(productos);
       }
     }
+  }
+
+  actualizarCantidad(referencia: number, cantidad: number): boolean {
+    const productos = this.getProductos();
+
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < productos.length; i++) {
+      if (productos[i].ref === referencia) {
+        productos[i].cantidad = cantidad;
+        this.setProducto(productos);
+        return true;
+      }
+    }
+    return false;
   }
 }

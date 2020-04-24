@@ -45,5 +45,19 @@ export class CartComponent implements OnInit {
     this.cartService.borrarProducto(ref);
   }
 
+  cambioCantidad(ref: number) {
+    const cantidad = Number($('#cantidad' + ref).val());
+    const response = this.cartService.actualizarCantidad(ref, cantidad);
+
+    if (response) {
+      this.productos = this.cartService.getProductos();
+      this.precioTotal = 0;
+      if (this.productos) {
+        this.productos.forEach(producto => {
+          this.precioTotal += producto.precio * producto.cantidad;
+        });
+      }
+    }
+  }
 
 }
