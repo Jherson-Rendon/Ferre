@@ -1,0 +1,113 @@
+{
+    "productos": [
+        {
+            "ref": 1,
+            "nombre": "Tubo 1",
+            "img": "assets/img/productos/1.jpg",
+            "minDes": "Para el baño",
+            "fullDes": "Descripsion completa del producto, pero clara pues mijo",
+            "precioAnt": 2500,
+            "precio": 3000,
+            "categoria": [0, 1, 2],
+            "hover": false
+        },
+        {
+            "ref": 2,
+            "nombre": "Tubo 4",
+            "img": "assets/img/productos/2.jpg",
+            "minDes": "Para el baño",
+            "fullDes": "Descripsion completa del producto, pero clara pues mijo",
+            "precioAnt": 2500,
+            "precio": 3000,
+            "categoria": [0, 1, 2],
+            "hover": false
+        },{
+            "ref": 3,
+            "nombre": "Tubo 2",
+            "img": "assets/img/productos/3.jpg",
+            "minDes": "Para el baño",
+            "fullDes": "Descripsion completa del producto, pero clara pues mijo",
+            "precioAnt": 2500,
+            "precio": 3000,
+            "categoria": [0, 1, 2],
+            "hover": false
+        },
+        {
+            "ref": 4,
+            "nombre": "Tubo 3",
+            "img": "assets/img/productos/4.jpg",
+            "minDes": "Para el baño",
+            "fullDes": "Descripsion completa del producto, pero clara pues mijo",
+            "precioAnt": 2500,
+            "precio": 3000,
+            "categoria": [0, 1, 2],
+            "hover": false
+        },
+        {
+            "ref": 5,
+            "nombre": "Estuco Bolsa",
+            "img": "assets/img/productos/5.jpg",
+            "minDes": "Para el baño",
+            "fullDes": "Descripsion completa del producto, pero clara pues mijo",
+            "precioAnt": 2500,
+            "precio": 30000,
+            "categoria": [0, 1, 2],
+            "hover": false
+        },
+        {
+            "ref": 6,
+            "nombre": "Estuco Bote",
+            "img": "assets/img/productos/6.jpg",
+            "minDes": "Para el baño",
+            "fullDes": "Descripsion completa del producto, pero clara pues mijo",
+            "precioAnt": 2500,
+            "precio": 40000,
+            "categoria": [0, 1, 2],
+            "hover": false
+        },
+        {
+            "ref": 7,
+            "nombre": "Pintura",
+            "img": "assets/img/productos/7.jpg",
+            "minDes": "Para el baño",
+            "fullDes": "Descripsion completa del producto, pero clara pues mijo",
+            "precioAnt": 2500,
+            "precio": 25000,
+            "categoria": [0, 1, 2],
+            "hover": false
+        },
+        {
+            "ref": 8,
+            "nombre": "Masilla",
+            "img": "assets/img/productos/8.jpg",
+            "minDes": "Para el baño",
+            "fullDes": "Descripsion completa del producto, pero clara pues mijo",
+            "precioAnt": 2500,
+            "precio": 30000,
+            "categoria": [0, 1, 2],
+            "hover": false
+        },
+        {
+            "ref": 9,
+            "nombre": "Caja de clavos 1/2",
+            "img": "assets/img/productos/9.jpg",
+            "minDes": "Para el baño",
+            "fullDes": "Descripsion completa del producto, pero clara pues mijo",
+            "precioAnt": 2500,
+            "precio": 5000,
+            "categoria": [0, 1, 2],
+            "hover": false
+        },
+        {
+            "ref": 10,
+            "nombre": "Caja de clavos",
+            "img": "assets/img/productos/10.jpg",
+            "minDes": "Para el baño",
+            "fullDes": "Descripsion completa del producto, pero clara pues mijo",
+            "precioAnt": 2500,
+            "precio": 3500,
+            "categoria": [0, 1, 2],
+            "hover": false
+        }
+    ]
+}
