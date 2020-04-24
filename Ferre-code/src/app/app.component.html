@@ -1,0 +1,5 @@
+<app-home></app-home>
+<app-header (modal)="procesoModal($event)"></app-header>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+<app-cart (modal)="procesoModal($event)" *ngIf="modal"></app-cart>

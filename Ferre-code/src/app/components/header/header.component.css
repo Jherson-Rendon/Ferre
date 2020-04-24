@@ -1,0 +1,10 @@
+.btn-cart:hover {
+    border: solid 1px black;
+    background-color: transparent;
+    color: black;
+    transition: ease-in;
+}
+
+.btn-cart i {
+    font-size: 18px;
+}
