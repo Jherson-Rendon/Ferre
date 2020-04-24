@@ -20,6 +20,9 @@ export class ProdutsComponent implements OnInit {
   }
 
   ngOnInit() {
+    $('#exampleModal').on('hide.bs.modal', () => {
+      $('#cantidad').val('1');
+    });
   }
 
   openModal(item: Producto) {

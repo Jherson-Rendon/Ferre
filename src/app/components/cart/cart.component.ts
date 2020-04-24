@@ -34,8 +34,16 @@ export class CartComponent implements OnInit {
       this.modal.emit(false);
     });
 
-    $(window).bind('storage', (e: any) => {
-        console.log('cambio: ' + e.originalEvent.key, e.originalEvent.newValue);
+    $(document).on('click', '.eliminar', function(event) {
+      event.preventDefault();
+      $(this).closest('tr').remove();
     });
   }
+
+  eliminarItem(ref: number, precio: number, cantidad: number) {
+    this.precioTotal -= precio * cantidad;
+    this.cartService.borrarProducto(ref);
+  }
+
+
 }

@@ -42,6 +42,7 @@ export class DetallesComponent implements OnInit {
     if (!respuesta.err) {
       this.alert('success', respuesta.mensaje);
       ($('#shoppingCart') as any).modal('show');
+      $('#cantidad').val('1');
     } else {
       this.alert('warning', respuesta.mensaje);
     }

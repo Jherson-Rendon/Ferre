@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ProductoCart } from '../interface/producto-cart';
-import { Observable } from 'rxjs';
-import { LocalStorage } from '@ngx-pwa/local-storage';
 
 export interface Response { err: boolean; mensaje: string; }
 
@@ -14,7 +12,7 @@ export class CartService {
   public productos: ProductoCart[];
   public productoExiste = false;
 
-  constructor(protected localStorage: LocalStorage) { }
+  constructor() { }
 
   crearItem(item: ProductoCart): Response {
     const productos = this.getProductos();
@@ -37,7 +35,6 @@ export class CartService {
       return { err: false, mensaje: 'Producto agregado' };
     }
   }
-
 
   existeProducto(referencia: number): boolean {
     const productos = this.getProductos();
@@ -65,16 +62,14 @@ export class CartService {
     return JSON.parse(localStorage.getItem('productos'));
   }
 
-  getItems() {
-    this.localStorage.getItem('productos').subscribe((producto) => {
-      console.log('si hay productos');
-      if (producto != null) {
-        this.productos = producto;
-        return { err: false, data: this.getProductos() };
+  borrarProducto(referencia: number): void {
+    let productos = this.getProductos();
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < productos.length; i++) {
+      if (productos[i].ref === referencia) {
+        productos.splice(i, 1);
+        this.setProducto(productos);
       }
-      return { err: true, mensaje: 'No existe productos' };
-    }, (err) => {
-      return { err: true, mensaje: err };
-    });
+    }
   }
 }
