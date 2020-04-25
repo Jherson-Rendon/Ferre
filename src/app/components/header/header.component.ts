@@ -12,9 +12,9 @@ export class HeaderComponent implements OnInit {
     { name: 'Nosotros', route: 'nosotros'},
     { name: 'Contacto', route: 'contacto'}
   ];
+  @Output() public modal = new EventEmitter<boolean>();
+
   constructor() { }
-  @Output()
-  public modal = new EventEmitter<boolean>();
 
   ngOnInit() {
   }

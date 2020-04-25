@@ -4,6 +4,7 @@ import { Producto } from 'src/app/interface/producto';
 import { ProductoCart } from 'src/app/interface/producto-cart';
 import { CartService } from 'src/app/services/cart.service';
 import Swal from 'sweetalert2';
+import { FiltrosService } from '../../services/filtros.service';
 
 @Component({
   selector: 'app-produts',
@@ -15,13 +16,21 @@ export class ProdutsComponent implements OnInit {
   public productos: Producto[];
   public modal: Producto;
 
-  constructor(public producService: ProdutsService, private cartService: CartService) {
-    this.productos = producService.getDataProducto();
+  constructor(private filterService: FiltrosService, public producService: ProdutsService, private cartService: CartService) {
+    this.productos = this.producService.getDataProducto();
   }
 
   ngOnInit() {
     $('#exampleModal').on('hide.bs.modal', () => {
       $('#cantidad').val('1');
+    });
+    $('#buscar').keyup( (e) => {
+      const busqueda = (e.target as HTMLInputElement).value;
+      const resbusqueda = this.filterService.buscarProducto(busqueda);
+
+      if (resbusqueda.length > 0) {
+        this.productos = resbusqueda;
+      }
     });
   }
 
@@ -54,5 +63,10 @@ export class ProdutsComponent implements OnInit {
       showConfirmButton: false,
       timer: 1500
     });
+  }
+
+  openNav() {
+    document.getElementById('mySidenav').style.width = '250px';
+    document.getElementById('main').style.marginLeft = '250px';
   }
 }

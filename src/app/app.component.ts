@@ -14,4 +14,11 @@ export class AppComponent {
   procesoModal(valor: boolean) {
     this.modal = valor;
   }
+
+  closeNav() {
+    if ($('#mySidenav').innerWidth() >= 200) {
+      document.getElementById('mySidenav').style.width = '0';
+      document.getElementById('main').style.marginLeft = '0';
+    }
+  }
 }
