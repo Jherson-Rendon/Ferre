@@ -12,6 +12,18 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
   }
 
+  openAcordion() {
+    const acc = document.getElementsByClassName('accordion')[0];
+    acc.classList.toggle('active');
+
+    const panel = acc.nextElementSibling;
+    if ((panel as HTMLElement).style.display === 'block') {
+      (panel as HTMLElement).style.display = 'none';
+    } else {
+      (panel as HTMLElement).style.display = 'block';
+    }
+  }
+
   /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
   closeNav() {
     document.getElementById('mySidenav').style.width = '0';

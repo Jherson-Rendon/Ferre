@@ -1,7 +1,86 @@
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
+
+    <h1 class="text-dark text-center h5">FILTROS</h1>
+    <div class="accordion p-0" id="accordionExample">
+        <!-- Inicio de CATEGORÍAS -->
+        <div class="card">
+            <div class="card-header py-0" id="headingOne">
+                <h2 class="mb-0 d-flex justify-content-between">
+                    <button class="btn btn-link text-dark text-decoration-none" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        CATEGORÍAS
+                    </button>
+                    <i class="fa fa-chevron-down pt-2 text-dark" style="font-size: .5em;"></i>
+                </h2>
+            </div>
+        
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body pt-0 pl-5">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                          <a class="nav-link text-secondary active" href="#">Todas</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link text-secondary" href="#">Link</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link text-secondary" href="#">Link</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link text-secondary " href="#">Link</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Fin de CATEGORÍAS -->
+
+        <!-- Inicio de PRECIO -->
+        <div class="card">
+            <div class="card-header py-0" id="headingTwo">
+                <h2 class="mb-0 d-flex justify-content-between">
+                    <button class="btn btn-link text-dark text-decoration-none collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        PRECIO
+                    </button>
+                    <i class="fa fa-chevron-down pt-2 text-dark" style="font-size: .5em;"></i>
+                </h2>
+            </div>
+            <div id="collapseTwo" class="container collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body row">
+                    <div class="form-group mb-0 col-5 px-0 pr-1">
+                        <input type="number" class="form-control h-100" id="precioMin" min="0" placeholder="Mínimo">
+                    </div>
+                    <div class="form-group mb-0 col-5 px-0 pr-1">
+                        <input type="number" class="form-control h-100" id="preioMax" min="1" placeholder="Máximo">
+                    </div>
+                    <button type="submit" class="btn btn-outline-dark col" style="width: 40px;"><i class="fa fa-chevron-right" style="font-size: 1em;"></i></button>
+                </div>
+            </div>
+        </div>
+        <!-- Fin de PRECIO -->
+
+        <!-- Inicio ORDENAR POR -->
+        <div class="card">
+            <div class="card-header py-0" id="headingThree">
+                <h2 class="mb-0 d-flex justify-content-between">
+                    <button class="btn btn-link text-dark text-decoration-none collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        ORDENAR POR
+                    </button>
+                    <i class="fa fa-chevron-down pt-2 text-dark" style="font-size: .5em;"></i>
+                </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="form-group">
+                        <select class="form-control" id="select">
+                            <option selected>General</option>
+                            <option>De menor a mayor precio</option>
+                            <option>De mayor a menor precio</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin ORDENAR POR -->
+    </div>
 </div>
