@@ -36,10 +36,15 @@ export class ProdutsComponent implements OnInit {
       }
     });
 
-    // Filtrado
-    $('.filter').click( (e) => {
+    // Filtrado por categoria
+    $('.filter-categorie').click( (e) => {
       const categoria = e.target.dataset.categoria;
-      this.productos = this.filterService.filtrarProductos(categoria);
+      this.productos = this.filterService.filtrarProductosByCategoria(categoria);
+    });
+
+    // Filtrado por precio
+    $('#filter-price').click( () => {
+      this.productos = this.filterService.filtrarProductosByPrecio(Number($('#precioMin').val()), Number($('#preioMax').val()));
     });
   }
 

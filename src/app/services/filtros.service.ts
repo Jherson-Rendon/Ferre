@@ -25,7 +25,7 @@ export class FiltrosService {
     return this.productos.filter( fill => expresion.test(fill.nombre));
   }
 
-  filtrarProductos(fill: string) {
+  filtrarProductosByCategoria(fill: string) {
     return this.productos.filter( producto => this.productoCategoria(producto.categoria, fill));
   }
 
@@ -45,5 +45,9 @@ export class FiltrosService {
       }
     }
     return false;
+  }
+
+  filtrarProductosByPrecio(min: number, max: number) {
+    return this.productos.filter( producto => producto.precio >= min && producto.precio <= max);
   }
 }
