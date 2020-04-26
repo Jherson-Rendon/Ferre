@@ -18,12 +18,15 @@ export class ProdutsComponent implements OnInit {
 
   constructor(private filterService: FiltrosService, public producService: ProdutsService, private cartService: CartService) {
     this.productos = this.producService.getDataProducto();
+    this.openNav();
   }
 
   ngOnInit() {
     $('#exampleModal').on('hide.bs.modal', () => {
       $('#cantidad').val('1');
     });
+
+    // Funcionalidad de buscar
     $('#buscar').keyup( (e) => {
       const busqueda = (e.target as HTMLInputElement).value;
       const resbusqueda = this.filterService.buscarProducto(busqueda);
@@ -31,6 +34,12 @@ export class ProdutsComponent implements OnInit {
       if (resbusqueda.length > 0) {
         this.productos = resbusqueda;
       }
+    });
+
+    // Filtrado
+    $('.filter').click( (e) => {
+      const categoria = e.target.dataset.categoria;
+      this.productos = this.filterService.filtrarProductos(categoria);
     });
   }
 

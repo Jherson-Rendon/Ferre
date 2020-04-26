@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
+  public categorias = [
+    { name: 'Todas', categorie: 'all', active: true },
+    { name: 'Pinturas, esmaltes y barnices', categorie: 'paint', active: false },
+    { name: 'Tuberías y sus accesorios', categorie: 'pipes', active: false },
+    { name: 'Elementos de unión', categorie: 'union', active: false }
+  ];
+
   constructor() { }
 
   ngOnInit() {
@@ -28,5 +35,13 @@ export class SidebarComponent implements OnInit {
   closeNav() {
     document.getElementById('mySidenav').style.width = '0';
     document.getElementById('main').style.marginLeft = '0';
+  }
+
+  setCategoria(index: number): void {
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < this.categorias.length; i++) {
+      this.categorias[i].active = false;
+    }
+    this.categorias[index].active = true;
   }
 }

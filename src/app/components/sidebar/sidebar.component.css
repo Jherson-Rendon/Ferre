@@ -36,7 +36,7 @@
   border-bottom: none;
 }
 
-.active {
+.active, .nav-item a.active:hover {
   text-decoration: underline solid black;
 }
 
@@ -52,6 +52,10 @@ input[type=number] {
 option {
   background-color: #343a40;
   color: white;
+}
+
+.nav-item a:hover {
+  cursor: pointer;
 }
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
