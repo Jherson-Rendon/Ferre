@@ -18,7 +18,6 @@ export class ProdutsComponent implements OnInit {
 
   constructor(private filterService: FiltrosService, public producService: ProdutsService, private cartService: CartService) {
     this.productos = this.producService.getDataProducto();
-    this.openNav();
   }
 
   ngOnInit() {
@@ -45,6 +44,24 @@ export class ProdutsComponent implements OnInit {
     // Filtrado por precio
     $('#filter-price').click( () => {
       this.productos = this.filterService.filtrarProductosByPrecio(Number($('#precioMin').val()), Number($('#preioMax').val()));
+    });
+
+    // Ordenar
+    $('#ordenarPor').change( (e) => {
+      switch ((e.target as HTMLSelectElement).value) {
+        case 'menor':
+          this.productos = this.filterService.ordenarProductosByPrecioMenor();
+          break;
+        case 'mayor':
+          this.productos = this.filterService.ordenarProductosByPrecioMayor();
+          break;
+        case 'a-z':
+          this.productos = this.filterService.ordenarProductosByAZ();
+          break;
+        case 'z-a':
+          this.productos = this.filterService.ordenarProductosByZA();
+          break;
+      }
     });
   }
 

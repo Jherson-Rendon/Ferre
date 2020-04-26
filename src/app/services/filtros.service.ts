@@ -50,4 +50,35 @@ export class FiltrosService {
   filtrarProductosByPrecio(min: number, max: number) {
     return this.productos.filter( producto => producto.precio >= min && producto.precio <= max);
   }
+
+  ordenarProductosByPrecioMenor(): Producto[] {
+    return this.productos.sort( (productoA, productoB) => productoA.precio - productoB.precio);
+  }
+
+  ordenarProductosByPrecioMayor(): Producto[] {
+    return this.productos.sort( (productoA, productoB) => productoB.precio - productoA.precio);
+  }
+
+  ordenarProductosByAZ(): Producto[] {
+    return this.sortJSON(this.productos, 'nombre', 'asc');
+  }
+
+  ordenarProductosByZA(): Producto[] {
+    return this.sortJSON(this.productos, 'nombre', 'desc');
+  }
+
+  sortJSON(data, key, orden) {
+    return data.sort( (a: Producto, b: Producto) => {
+      const x = a[key];
+      const y = b[key];
+
+      if (orden === 'asc') {
+          return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+      }
+
+      if (orden === 'desc') {
+          return ((x > y) ? -1 : ((x < y) ? 1 : 0));
+      }
+    });
+  }
 }

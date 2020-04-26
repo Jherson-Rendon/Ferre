@@ -14,7 +14,7 @@
                 </h2>
             </div>
         
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body pt-0 pl-5">
                     <ul class="nav flex-column">
                         <li class="nav-item" *ngFor="let cat of categorias, index as i">
@@ -36,7 +36,7 @@
                     <i class="fa fa-chevron-down pt-2 text-dark" style="font-size: .5em;"></i>
                 </h2>
             </div>
-            <div id="collapseTwo" class="container collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div id="collapseTwo" class="container collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body row">
                     <div class="form-group mb-0 col-5 px-0 pr-1">
                         <input type="number" class="form-control h-100" id="precioMin" min="0" placeholder="Mínimo">
@@ -63,10 +63,12 @@
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body">
                     <div class="form-group">
-                        <select class="form-control" id="select">
-                            <option selected>General</option>
-                            <option>De menor a mayor precio</option>
-                            <option>De mayor a menor precio</option>
+                        <select class="form-control" id="ordenarPor">
+                            <option value="default">General</option>
+                            <option value="menor">De menor a mayor precio</option>
+                            <option value="mayor">De mayor a menor precio</option>
+                            <option value="a-z">De A-Z</option>
+                            <option value="z-a">De Z-A</option>
                         </select>
                     </div>
                 </div>
