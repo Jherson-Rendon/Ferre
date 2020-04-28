@@ -14,6 +14,7 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { DetallesComponent } from './components/detalles/detalles.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { PaginacionComponent } from './components/paginacion/paginacion.component';
 
 // Pipes
 import { RoundPipe } from './pipes/round/round.pipe';
@@ -30,6 +31,7 @@ import { RoundPipe } from './pipes/round/round.pipe';
     ContactoComponent,
     DetallesComponent,
     SidebarComponent,
+    PaginacionComponent,
     RoundPipe
   ],
   imports: [

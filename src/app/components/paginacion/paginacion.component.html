@@ -1,0 +1,13 @@
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item" [ngClass]="page === 1 ? 'disabled' : 'text-primary pointer'">
+      <a class="page-link" (click)="anterior()">Anterior</a>
+    </li>
+    <li class="page-item pointer" *ngFor="let item of pages; index as i" [ngClass]="{'active': i + 1 === page}">
+      <a class="page-link" (click)="pasarPagina(i + 1)">{{i + 1}}</a>
+    </li>
+    <li class="page-item" [ngClass]="page === totalPages ? 'disabled' : 'text-primary pointer'">
+      <a class="page-link" (click)="siguiente()">Siguiente</a>
+    </li>
+  </ul>
+</nav>

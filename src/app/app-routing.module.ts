@@ -14,6 +14,7 @@ const routes: Routes = [
     component: ProdutsComponent,
     data: { title: 'inicio List' }
   },
+  { path: 'inicio/page/:page', component: ProdutsComponent },
   { path: '',
     redirectTo: '/inicio',
     pathMatch: 'full'

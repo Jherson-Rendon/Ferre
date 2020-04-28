@@ -21,6 +21,9 @@ export class FiltrosService {
   }
 
   buscarProducto(search: string) {
+    if (search.length < 3 || search === '') {
+      return this.productos;
+    }
     const expresion = new RegExp(`${search}.*`, 'i');
     return this.productos.filter( fill => expresion.test(fill.nombre));
   }

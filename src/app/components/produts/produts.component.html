@@ -2,7 +2,7 @@
 
 <div class="container mt-5">
   <div class="row">
-    <div class="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-3 px-5 px-sm-0 px-md-2 px-xl-4 mx-sm-auto mx-md-0 mb-4 animated fadeIn"  *ngFor="let item of productos">
+    <div class="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-3 px-5 px-sm-0 px-md-2 px-xl-4 mx-sm-auto mx-md-0 mb-4 animated fadeIn"  *ngFor="let item of productos | slice: pageInicio: pageFin;">
       <div class="card filterDiv" (mouseover)="item.hover = true" (mouseout)="item.hover = false">
         <img [routerLink]="['/producto', item.ref]" [src]="item.img" class="card-img-top animated fadeIn slow" alt="{{item.nombre}}">
         <div class="quickshop-div button-matt-2" (click)="openModal(item)" data-toggle="modal" data-target="#exampleModal"
@@ -21,6 +21,7 @@
       </div>
     </div>
   </div>
+  <app-paginacion (paginaEmitter)="goToPage($event)" [page]="page" [totalPages]="totalPages"></app-paginacion>
 </div>
 
 <!-- Modal -->

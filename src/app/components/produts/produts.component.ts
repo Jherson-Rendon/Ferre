@@ -5,6 +5,8 @@ import { ProductoCart } from 'src/app/interface/producto-cart';
 import { CartService } from 'src/app/services/cart.service';
 import Swal from 'sweetalert2';
 import { FiltrosService } from '../../services/filtros.service';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-produts',
@@ -13,11 +15,24 @@ import { FiltrosService } from '../../services/filtros.service';
 })
 export class ProdutsComponent implements OnInit {
 
+  private productosPorPaginas = 10;
   public productos: Producto[];
   public modal: Producto;
+  public pageInicio = 0;
+  public pageFin = this.productosPorPaginas;
+  public page = 1; // Número de página en la que estamos. Será 1 la primera vez que se carga el componente
+  public totalPages: number; // Número total de páginas
+  public numProduts: number; // Total de tiendas existentes
 
-  constructor(private filterService: FiltrosService, public producService: ProdutsService, private cartService: CartService) {
+  // tslint:disable-next-line:max-line-length
+  constructor(private filterService: FiltrosService, public producService: ProdutsService, private cartService: CartService, private rutaActiva: ActivatedRoute) {
     this.productos = this.producService.getDataProducto();
+    this.getShopsByPage();
+    this.rutaActiva.params.subscribe(params => {
+      if (params.page && Number(params.page) <= this.totalPages) {
+        this.goToPage(Number(params.page));
+      }
+    });
   }
 
   ngOnInit() {
@@ -99,5 +114,17 @@ export class ProdutsComponent implements OnInit {
   openNav() {
     document.getElementById('mySidenav').style.width = '300px';
     document.getElementById('main').style.marginLeft = '300px';
+  }
+
+  goToPage(page: number) {
+    this.page = page;
+    console.log(page);
+    this.pageFin = this.page * this.productosPorPaginas;
+    this.pageInicio = this.pageFin - this.productosPorPaginas;
+  }
+
+  getShopsByPage() {
+    this.numProduts = this.productos.length;
+    this.totalPages = Math.ceil(this.numProduts / this.productosPorPaginas);
   }
 }
