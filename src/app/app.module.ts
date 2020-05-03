@@ -18,6 +18,7 @@ import { PaginacionComponent } from './components/paginacion/paginacion.componen
 
 // Pipes
 import { RoundPipe } from './pipes/round/round.pipe';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { RoundPipe } from './pipes/round/round.pipe';
     DetallesComponent,
     SidebarComponent,
     PaginacionComponent,
-    RoundPipe
+    RoundPipe,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
