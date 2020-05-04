@@ -1,0 +1,14 @@
+
+		#Contenedor{
+			width: auto;
+			height: auto;
+			/* border: 1px solid red; */
+		}
+		/* #barraSuperior{
+			height: 148px;
+			background-color: #A8A8A8;
+		} */
+		#ImagenBarra{
+			width: 345px;
+			height: 100px;
+		}
