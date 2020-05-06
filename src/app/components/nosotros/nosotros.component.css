@@ -1,10 +1,11 @@
 #contenedor{
-    background-color: gray;
+    background-color: gainsboro;
 }
 
 #TextoImagen{
-    padding-top: 150px;
+    padding-top: 5%;
+    padding-left: 3%;
 }
 #TextoImagen2{
-    padding-top: 50px;
+    padding-top: 5%;
 }
