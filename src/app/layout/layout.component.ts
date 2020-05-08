@@ -7,7 +7,14 @@ import { Component } from '@angular/core';
 })
 export class LayoutComponent {
 
+  public modal= false;
+
   constructor() { }
+
+  procesoModal(event:boolean){
+    this.modal=event;
+  }
+
 
   closeNav() {
     if ($('#mySidenav').innerWidth() >= 200) {
