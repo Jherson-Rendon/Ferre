@@ -1,128 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	
-
-</head>
-<body>
-
-	<div id="barraSuperior" class="col-4 col-md-6 col-lg-6"> 
-		<img src="assets/img/logoPequeño.png" alt="">
-		
+<div id="barraSuperior" class="col-4 col-md-6 col-lg-6"> 
+	<img src="assets/img/logoPequeño.png" alt="">
+</div>
+<div class="row">
+	<div class="col-2 col col-md-6 col-lg-4">
+		<app-side-bar></app-side-bar>
 	</div>
-
-
-	<div class="row " >
-	  <div class="col-2 col col-md-6 col-lg-4">
-	    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-	      <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Productos</a>
-	      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Nosotros</a>
-	      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Admin</a>
-	    </div>
-	  </div>
-	  <div class="col-sm-6 col-md-6 col-lg-8 col-xl-8" >
-	    <div class="tab-content" id="v-pills-tabContent">
-	    	<!-- productos -->
-			<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-
-				<div id="Contenedor" class="col-auto collg col-md-8 col-xl-10" style="background-color: azure;" >
-
-					<div class="col-auto py-4" >
-							<div class="custom-file">
-							<input type="file" class="custom-file-input" id="customFileLang" lang="es">
-							<label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
-							</div>
-							
-
-							
-						<div>
-						<!-- solicitar datos -->
-							<form class="row py-3 px-5">
-								<!-- nombre del producto -->
-							<div class="form-group px-2">
-								<label for="NombreProducto">Nombre Producto</label>
-								<input type="text" class="form-control" id="NombreProducto" placeholder="Ingrese el nombre del producto">
-							</div>
-							<!-- precio del producto -->
-							<div class="form-group px-2">
-								<label for="PrecioProducto">Precio</label>
-								<input type="text" class="form-control" id="PrecioProducto" placeholder="$">
-							</div>
-							<!-- Referencia del producto -->
-							<div class="form-group px-2">
-								<label for="PrecioProducto">Referencia</label>
-								<input type="text" class="form-control" id="ReferenciaProducto" placeholder="Referencia">
-							</div>
-							<!-- Categoria del producto -->
-							<div class="form-group px-2  ">
-								<label for="exampleFormControlSelect1">Categoria</label>
-									<select class="form-control" id="exampleFormControlCategoria" placeholder="categoria" >
-									<option>Pvc</option>
-									<option>Plomeria</option>
-									<option>Cemento</option>
-									<option>Electricos</option>
-									<option>Contruccion</option>
-									</select>
-							</div>
-
-							<!-- Cantidad del producto -->
-							<div class="form-group px-2 col-sm-4 col-md-6 col-lg-2 col-xl-2">
-								<label for="PrecioProducto">Cantidad</label>
-								<input type="text" class="form-control" id="CantidadProducto" placeholder="1">
-							</div>
-
-							<!-- Descripcion del producto -->
-
-							<div class="mb-2 px-2 col-12">
-								<label for="validationTextarea">Descripcion</label>
-								<textarea class="form-control" id="validationTextarea" placeholder="Descrpcion requerida" required></textarea>
-							</div>
-							  	
-							<button type="submit" class="btn btn-primary px-5 uk-margin-left" style="margin-left: 25%;" >Agregar Producto</button>					
-								
-							</form>
-							
-						</div>
-					</div>
-				</div>        
-        	</div>	
-
-
-        <!-- Nosotros -->
-	      <div class="tab-pane fade"  id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-            <form>
-			  <div class=" form-group col-auto collg col-md-8 col-xl-10" style="background-color:gray;" >
-				<form>
-					<div class="form-group">
-					  <label for="exampleFormControlFile1">Selecionar archivo</label>
-					  <input type="file" class="form-control-file" id="exampleFormControlFile1">
-					</div>
-				  </form>
-				  <form>
-					<div class="mb-2 px-2 col-12 form-group">
-						<label for="validationTextarea">Mision</label>
-						<textarea class="form-control" id="validationTextareaMision" placeholder="Mision de la empresa" required></textarea>
-					</div>
-					<div class="mb-2 px-2 col-12 form-group">
-						<label for="validationTextarea">Vision</label>
-						<textarea class="form-control" id="validationTextareaVision" placeholder="Vision de la empresa" required></textarea>
-					</div>
-					
-					<button type="submit" class="btn btn-primary">Subir Datos</button>
-				  </form>
-              </div>
-            </form>
-      
-        </div>
-	      <!-- Admin -->
-	      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-        </div>   
-
-	    </div>
-	  </div>
+	<div class="col-sm-6 col-md-6 col-lg-8 col-xl-8" >
+		<div class="tab-content" id="v-pills-tabContent">
+			<router-outlet></router-outlet>
+		</div>
 	</div>
-
-		
-	
-</body>
-</html>
+</div>

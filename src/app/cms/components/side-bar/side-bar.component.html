@@ -1,0 +1,3 @@
+<div class="nav flex-column nav-pills">
+  <a class="nav-link" *ngFor="let ruta of rutas" [routerLink]="ruta.ruta" routerLinkActive="active" >{{ruta.texto}}</a>
+</div>

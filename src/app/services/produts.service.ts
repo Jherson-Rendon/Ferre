@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as dataProductos from '../../assets/data/productos.json';
 import { Producto, Categoria } from '../interface/producto';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class ProdutsService {
   public dataCategoria: Categoria[];
   public Producto: Producto;
 
-  constructor() {
+  constructor(private firestore: AngularFirestore) {
     this.dataProducto = dataProductos.productos;
     this.dataCategoria = dataProductos.categorias;
   }

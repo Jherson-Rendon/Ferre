@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// Modulos
 import { AppRoutingModule } from './app-routing.module';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 // Componentes
 import { AppComponent } from './app.component';
@@ -19,6 +23,7 @@ import { PaginacionComponent } from './components/paginacion/paginacion.componen
 // Pipes
 import { RoundPipe } from './pipes/round/round.pipe';
 import { LayoutComponent } from './layout/layout.component';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,10 @@ import { LayoutComponent } from './layout/layout.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
