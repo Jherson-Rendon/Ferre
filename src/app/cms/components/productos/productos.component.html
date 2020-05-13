@@ -1,61 +1,91 @@
-<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+<div id="Contenedor" class="col-auto collg col-md-8 col-xl-10" style="background-color: azure;">
 
-  <div id="Contenedor" class="col-auto collg col-md-8 col-xl-10" style="background-color: azure;" >
+  <div class="col-auto py-4">
 
-    <div class="col-auto py-4" >
-      
-      <div>
-        <!-- solicitar datos -->
-        <form class="row py-3 px-5" [formGroup]="productosForm" (ngSubmit)="guardarProducto()">
-            <div class="custom-file">
-              <input type="file" class="custom-file-input" id="customFileLang" (change)="cargarImagen($event)" lang="es" accept=".png, .jpg, .jpeg">
-              <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+    <div class="container">
+      <!-- solicitar datos -->
+      <form class="row py-3 px-5" [formGroup]="productosForm" (ngSubmit)="guardarProducto()">
+
+        <!-- Imagen del producto -->
+        <div class="col-12 mb-4">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="imagenProducto">Subir</span>
             </div>
-          <!-- nombre del producto -->
-        <div class="form-group px-2">
-          <label for="NombreProducto">Nombre Producto</label>
-          <input type="text" class="form-control" formControlName="nombre" placeholder="Ingrese el nombre del producto">
+            <div class="custom-file">
+              <input type="file" formControlName="imagen" (change)="cargarImagen($event)" class="custom-file-input"
+                lang="es" accept=".png, .jpg, .jpeg" id="imagen" aria-describedby="imagenProducto">
+              <label class="custom-file-label" for="inputGroupFile01">{{imgName}}</label>
+            </div>
+          </div>
+
+          <mat-error class="err-imagen" *ngIf="imagen.invalid && (imagen.dirty || imagen.touched)" [innerHTML]="getErrorMessageImagen()"></mat-error>
         </div>
+
+        <!-- nombre del producto -->
+        <mat-form-field class="col-12 col-md-6" appearance="outline">
+          <mat-label>Nombre:</mat-label>
+          <input type="text" matInput formControlName="nombre" placeholder="Ingrese el nombre del producto" required>
+
+          <mat-error *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" [innerHTML]="getErrorMessageNombre()"></mat-error>
+        </mat-form-field>
+
         <!-- precio del producto -->
-        <div class="form-group px-2">
-          <label for="PrecioProducto">Precio</label>
-          <input type="number" class="form-control" formControlName="precio" placeholder="$">
+        <mat-form-field class="col-12 col-md-6" appearance="outline">
+          <mat-label>Precio:</mat-label>
+          <input matInput type="number" formControlName="precio" class="text-right">
+          <span matPrefix>$&nbsp;</span>
+          <span matSuffix>.00</span>
+
+          <mat-error *ngIf="precio.invalid && (precio.dirty || precio.touched)" [innerHTML]="getErrorMessagePrecio()"></mat-error>
+        </mat-form-field>
+
+        <!-- Agregar Nueva Referencia del producto -->
+        <div class="col-3 col-md-4 mt-3">
+          <a (click)="nuevaCategoria()" class="btn btn-outline-primary btn-block">Nueva Categoria</a>
         </div>
-        <!-- Referencia del producto -->
-        <div class="form-group px-2">
-          <label for="PrecioProducto">Referencia</label>
-          <input type="text" class="form-control" id="ReferenciaProducto" placeholder="Referencia">
-        </div>
+
         <!-- Categoria del producto -->
-        <div class="form-group px-2  ">
-          <label for="exampleFormControlSelect1">Categoria</label>
-            <select class="form-control" formControlName="categoria" placeholder="categoria" >
-            <option>Pvc</option>
-            <option>Plomeria</option>
-            <option>Cemento</option>
-            <option>Electricos</option>
-            <option>Contruccion</option>
-            </select>
-        </div>
+        <mat-form-field class="col-9 col-md-4 mt-3" appearance="outline">
+          <mat-label>Categoria:</mat-label>
+          <mat-select formControlName="categoria" multiple>
+            <mat-option *ngFor="let categoria of categorias | async" [value]="categoria.categorie">{{categoria.nombre}}</mat-option>
+          </mat-select>
+
+          <mat-error *ngIf="categoria.invalid && (categoria.dirty || categoria.touched)" [innerHTML]="getErrorMessageCategoria()"></mat-error>
+        </mat-form-field>
 
         <!-- Cantidad del producto -->
-        <div class="form-group px-2 col-sm-4 col-md-6 col-lg-2 col-xl-2">
-          <label for="PrecioProducto">Cantidad</label>
-          <input type="number" class="form-control" formControlName="cantidad" placeholder="1">
-        </div>
+        <mat-form-field class="col-12 col-md-4 mt-3" appearance="outline">
+          <mat-label>Cantidad:</mat-label>
+          <input matInput type="number" formControlName="cantidad" min="1" placeholder="1" required>
+
+          <mat-error *ngIf="cantidad.invalid && (cantidad.dirty || cantidad.touched)" [innerHTML]="getErrorMessageCantidad()"></mat-error>
+        </mat-form-field>
 
         <!-- Descripcion del producto -->
+        <mat-form-field class="col-12 mt-3" appearance="outline">
+          <mat-label>Descripcion:</mat-label>
+          <textarea matInput formControlName="descripcion" placeholder="Descrpcion requerida" required></textarea>
 
-        <div class="mb-2 px-2 col-12">
-          <label for="validationTextarea">Descripcion</label>
-          <textarea class="form-control" formControlName="descripcion" placeholder="Descrpcion requerida" required></textarea>
+          <mat-error *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)" [innerHTML]="getErrorMessageDescripcion()"></mat-error>
+        </mat-form-field>
+
+        <div class="col-12">
+          <div *ngIf="loader" class="w-100 progress animated fadeIn">
+            <div class="progress-bar" role="progressbar" [ngStyle]="{width: porcentaje+'%'}" [attr.aria-valuenow]="porcentaje" aria-valuemin="0" aria-valuemax="100">{{porcentaje}}%</div>
+          </div>
         </div>
-          
-        <button type="submit" class="btn btn-primary px-5 uk-margin-left" style="margin-left: 25%;" >Agregar Producto</button>					
-          
-        </form>
-        
-      </div>
+
+        <div class="col-12 text-center">
+          <button [disabled]="!productosForm.valid || loader" type="submit" class="btn btn-primary mt-3 px-5">
+            <span *ngIf="!loader">Agregar Producto</span>
+            <span *ngIf="loader" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          </button>
+        </div>
+
+      </form>
+
     </div>
-  </div>        
-</div>	
+  </div>
+</div>

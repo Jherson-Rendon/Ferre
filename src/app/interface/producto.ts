@@ -1,14 +1,16 @@
 export interface Producto {
-    ref: number;
-    nombre: string;
-    img: string;
-    minDes: string;
-    fullDes: string;
-    precioAnt: number;
-    precio: number;
-    categoria: number[];
-    hover: boolean;
+    id?: string;
+    ref?: number;
+    img: File | string;
     show: boolean;
+    hover: boolean;
+    nombre: string;
+    minDes: string;
+    precio: number;
+    fullDes: string;
+    cantidad?: number;
+    precioAnt?: number;
+    categoria: number[];
 }
 
 // tslint:disable-next-line:class-name

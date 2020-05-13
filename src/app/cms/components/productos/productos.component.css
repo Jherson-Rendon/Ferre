@@ -2,3 +2,33 @@
     width: 345px;
     height: 100px;
 }
+
+.custom-file-label {
+    background-color: transparent;
+}
+
+.custom-file-label::after {
+    content: 'Buscar';
+}
+
+.err-imagen {
+    font-size: 11px;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: .3em 0 .3em 0 !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-label-wrapper {
+    top: -20px;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-suffix, ::ng-deep .mat-form-field-appearance-outline .mat-form-field-prefix {
+    top: 0 !important;
+}
+
+mat-form-field {
+    font-size: 15px;
+}
