@@ -17,18 +17,19 @@ export class DetallesComponent implements OnInit {
   // tslint:disable-next-line:max-line-length
   constructor(private rutaActiva: ActivatedRoute, public producService: ProdutsService, public cartService: CartService, private router: Router) {
     rutaActiva.params.subscribe(params => {
-      const producto = producService.getDataProductoByRef(params.ref);
-
-      if (producto) {
-        this.producto = producto;
-      } else {
-        this.router.navigate(['/error']);
-      }
+      producService.getDataProductoById(params.id).then( data => {
+        if (data.length > 0) {
+          this.producto = data[0];
+        } else {
+          this.router.navigate(['/error']);
+        }
+      }, (err) => {
+        console.error(err);
+      });
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   agregarProducto(): void {
     const producto: ProductoCart = {

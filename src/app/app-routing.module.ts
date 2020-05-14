@@ -7,20 +7,21 @@ import { DetallesComponent } from './components/detalles/detalles.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { LayoutComponent } from './layout/layout.component';
+import { ErrorComponent } from './components/error/error.component';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent, children:
     [
       { path: '', redirectTo: '/inicio', pathMatch: 'full' },
+      { path: 'inicio', component: ProdutsComponent },
+      { path: 'inicio/page/:page', component: ProdutsComponent },
       { path: 'contacto', component: ContactoComponent },
       { path: 'nosotros', component: NosotrosComponent },
-      { path: 'producto/:ref', component: DetallesComponent },
-      { path: 'inicio', component: ProdutsComponent },
-      { path: 'inicio/page/:page', component: ProdutsComponent }
+      { path: 'producto/:id', component: DetallesComponent }
     ]
   },
   { path: 'cms', loadChildren: './cms/cms.module#CmsModule' },
-  { path: '**', component: ProdutsComponent }
+  { path: '**', component: ErrorComponent }
 ];
 
 @NgModule({

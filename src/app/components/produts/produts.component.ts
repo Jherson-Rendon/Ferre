@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProdutsService } from 'src/app/services/produts.service';
 import { Producto } from 'src/app/interface/producto';
 import { ProductoCart } from 'src/app/interface/producto-cart';
@@ -6,14 +6,16 @@ import { CartService } from 'src/app/services/cart.service';
 import Swal from 'sweetalert2';
 import { FiltrosService } from '../../services/filtros.service';
 import { ActivatedRoute } from '@angular/router';
-
+import { Subscription } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-produts',
   templateUrl: './produts.component.html',
   styleUrls: ['./produts.component.css']
 })
-export class ProdutsComponent implements OnInit {
+export class ProdutsComponent implements OnInit, OnDestroy {
+  private unsubscribe$: Subscription;
 
   private productosPorPaginas = 10;
   public productos: Producto[];
@@ -26,8 +28,10 @@ export class ProdutsComponent implements OnInit {
 
   // tslint:disable-next-line:max-line-length
   constructor(private filterService: FiltrosService, public producService: ProdutsService, private cartService: CartService, private rutaActiva: ActivatedRoute) {
-    this.productos = this.producService.getDataProducto();
-    this.getShopsByPage();
+    this.unsubscribe$ = this.producService.getProductos().subscribe( productos => {
+      this.productos = productos;
+      this.getShopsByPage();
+    });
     this.rutaActiva.params.subscribe(params => {
       if (params.page && Number(params.page) <= this.totalPages) {
         this.goToPage(Number(params.page));
@@ -80,8 +84,12 @@ export class ProdutsComponent implements OnInit {
     });
   }
 
-  openModal(item: Producto) {
-    this.modal = item;
+  ngOnDestroy(): void {
+    this.unsubscribe$.unsubscribe();
+  }
+
+  openModal(producto: Producto) {
+    this.modal = producto;
   }
 
   agregarProducto(): void {

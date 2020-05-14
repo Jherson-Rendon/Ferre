@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ConexionService } from '../../services/conexion.service';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
-import { map, count } from 'rxjs/operators';
 import { Subject, Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Producto, Categoria } from 'src/app/interface/producto';
@@ -55,35 +54,39 @@ export class ProductosComponent implements OnInit, OnDestroy {
 
   guardarProducto() {
     this.loader = true;
+    const cantidad = Number(this.cantidad.value.toString().replace(/[^0-9]/g, ''));
+    const precio = Number(this.precio.value.toString().replace(/[^0-9]/g, ''));
 
     const data: Producto = {
       img: this.fileImagen,
       show: true,
       hover: false,
       nombre: this.nombre.value,
-      precio: this.precio.value.replace(/[^0-9]/g, ''),
+      precio,
       minDes: this.descripcion.value.substr(0, 16) + '...',
       fullDes: this.descripcion.value,
-      cantidad: this.cantidad.value.replace(/[^0-9]/g, ''),
+      cantidad,
       precioAnt: this.precio.value,
       categoria: this.categoria.value
     };
 
     const response = this.conexion.uploadImage(data);
 
-    response.carga.pipe( takeUntil(this.unsubscribe$) ).subscribe( res => {
-      this.porcentaje = Math.round(res);
-      if (res === 100) {
-        this.loader = false;
-        this.productosForm.reset();
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Se agrego un nuevo producto',
-          showConfirmButton: false,
-          timer: 1500
-        });
-      }
+    response.then( pro => {
+      pro.carga.pipe( takeUntil(this.unsubscribe$) ).subscribe( res => {
+        this.porcentaje = Math.round(res);
+        if (res === 100) {
+          this.loader = false;
+          this.productosForm.reset();
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Se agrego un nuevo producto',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
+      });
     });
   }
 

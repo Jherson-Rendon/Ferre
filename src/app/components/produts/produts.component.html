@@ -2,21 +2,21 @@
 
 <div class="container mt-5">
   <div class="row">
-    <div class="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-3 px-5 px-sm-0 px-md-2 px-xl-4 mx-sm-auto mx-md-0 mb-4 animated fadeIn"  *ngFor="let item of productos | slice: pageInicio: pageFin;">
-      <div class="card filterDiv" (mouseover)="item.hover = true" (mouseout)="item.hover = false">
-        <img [routerLink]="['/producto', item.ref]" [src]="item.img" class="card-img-top animated fadeIn slow" alt="{{item.nombre}}">
-        <div class="quickshop-div button-matt-2" (click)="openModal(item)" data-toggle="modal" data-target="#exampleModal"
-        [ngStyle]="{'display': item.hover ? 'block' : 'none'}">
+    <div class="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-3 px-5 px-sm-0 px-md-2 px-xl-4 mx-sm-auto mx-md-0 mb-4 animated fadeIn"  *ngFor="let producto of productos | slice: pageInicio: pageFin;">
+      <div class="card filterDiv" (mouseover)="producto.hover = true" (mouseout)="producto.hover = false">
+        <img [routerLink]="['/producto', producto.id]" [src]="producto.img" class="card-img-top animated fadeIn slow" alt="{{producto.minDes}}">
+        <div class="quickshop-div button-matt-2" (click)="openModal(producto)" data-toggle="modal" data-target="#exampleModal"
+              [ngStyle]="{'display': producto.hover ? 'block' : 'none'}">
           <a>
             <span>Vista rápida</span>   
           </a>                                                          
         </div>
         <div class="card-body p-0 pt-1">
           <div class="d-flex justify-content-between">
-            <h5 class="card-title">{{item.nombre}}</h5>
-            <h5>{{item.precio | round}}</h5>
+            <h5 class="card-title">{{producto.nombre}}</h5>
+            <h5>{{producto.precio | round}}</h5>
           </div>
-          <p class="card-text">{{item.minDes}}</p>
+          <p class="card-text">{{producto.minDes}}</p>
         </div>
       </div>
     </div>
@@ -53,7 +53,7 @@
               </div>
             </div>
             <div class="mt-3">
-              <button data-dismiss="modal" aria-label="Close" [routerLink]="['/producto', modal.ref]" class="btn btn-outline-dark btn-block">Ver detalles</button>
+              <button data-dismiss="modal" aria-label="Close" [routerLink]="['/producto', modal.id]" class="btn btn-outline-dark btn-block">Ver detalles</button>
             </div>
           </div>
         </div>

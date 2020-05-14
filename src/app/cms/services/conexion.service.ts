@@ -27,8 +27,8 @@ export class ConexionService {
     return this.categoriaCollection.valueChanges();
   }
 
-  uploadImage(producto: Producto) {
-    this.countProductos();
+  async uploadImage(producto: Producto) {
+    await this.countProductos();
     const ref = this.numProductos + 1;
     const filePath = `imagenes/productos/producto_${ref}`;
     const fileRef = this.storage.ref(filePath);

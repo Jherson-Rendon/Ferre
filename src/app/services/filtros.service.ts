@@ -12,8 +12,12 @@ export class FiltrosService {
   public categorias: Categoria[];
 
   constructor(private producService: ProdutsService) {
-    this.productos = this.producService.getDataProducto();
-    this.categorias = this.producService.getDataCategoria();
+    this.producService.getProductos().subscribe( producto => {
+      this.productos = producto;
+    });
+    this.producService.getCategorias().subscribe( categoria => {
+      this.categorias = categoria;
+    });
   }
 
   getProdutsFilter() {

@@ -1,4 +1,4 @@
-<section class="container mt-5 d-block">
+<section *ngIf="producto" class="container mt-5 d-block">
   <div class="row px-5 mx-lg-5">
     <div class="col-12 col-md-6 col-lg-7 text-center">
       <img [src]="producto.img" alt="" class="img-fluid" style="max-height: 390px;">
@@ -56,3 +56,13 @@
     </div>
   </div>
 </section>
+
+<div *ngIf="!producto" class="container loader">
+  <div class="row h-100">
+    <div class="col-12 d-flex">
+      <div class="spinner-grow m-auto" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+</div>

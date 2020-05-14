@@ -25,6 +25,7 @@ import { PaginacionComponent } from './components/paginacion/paginacion.componen
 import { RoundPipe } from './pipes/round/round.pipe';
 import { LayoutComponent } from './layout/layout.component';
 import { environment } from '../environments/environment';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { environment } from '../environments/environment';
     ContactoComponent,
     DetallesComponent,
     PaginacionComponent,
-    RoundPipe
+    RoundPipe,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
